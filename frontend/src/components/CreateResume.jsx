@@ -83,13 +83,16 @@ const CreateResume = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8000/createresume", {
-      method: "post",
-      body: JSON.stringify(input),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://create-resume-library.onrender.com/createresume",
+      {
+        method: "post",
+        body: JSON.stringify(input),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const result = await res.json();
 

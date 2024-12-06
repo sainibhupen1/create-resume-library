@@ -15,16 +15,21 @@ const StoreBook = () => {
   }, []);
 
   const productapi = async () => {
-    const res = await fetch("http://localhost:8000/product");
+    const res = await fetch(
+      "https://create-resume-library.onrender.com/product"
+    );
     const result = await res.json();
 
     setProducts(result);
   };
 
   const deleteHandler = async (id) => {
-    const res = await fetch(`http://localhost:8000/product/${id}`, {
-      method: "delete",
-    });
+    const res = await fetch(
+      `https://create-resume-library.onrender.com/product/${id}`,
+      {
+        method: "delete",
+      }
+    );
     const result = await res.json();
     if (result) {
       productapi();
@@ -34,7 +39,9 @@ const StoreBook = () => {
   const searchHandler = async (e) => {
     const key = e.target.value;
     if (key) {
-      const res = await fetch(`http://localhost:8000/search/${key}`);
+      const res = await fetch(
+        `https://create-resume-library.onrender.com/search/${key}`
+      );
       const result = await res.json();
       if (result) {
         setProducts(result);

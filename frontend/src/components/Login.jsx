@@ -13,13 +13,16 @@ const Login = () => {
   const submitHandler = async () => {
     // console.log(name, email, password);
 
-    let result = await fetch("http://localhost:8000/login", {
-      method: "post",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      "https://create-resume-library.onrender.com/login",
+      {
+        method: "post",
+        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     result = await result.json();
 
     localStorage.setItem("learninglogin", JSON.stringify(result));

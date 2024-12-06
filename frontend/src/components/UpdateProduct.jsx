@@ -15,7 +15,9 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
 
   const productFindApi = async () => {
-    let product = await fetch(`http://localhost:8000/update/${param.id}`);
+    let product = await fetch(
+      `https://create-resume-library.onrender.com/update/${param.id}`
+    );
     const result = await product.json();
 
     setBook(result.book);
@@ -23,13 +25,16 @@ const UpdateProduct = () => {
   };
 
   const updateBtn = async () => {
-    const res = await fetch(`http://localhost:8000/update/${param.id}`, {
-      method: "put",
-      body: JSON.stringify({ book, price }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      `https://create-resume-library.onrender.com/update/${param.id}`,
+      {
+        method: "put",
+        body: JSON.stringify({ book, price }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const result = await res.json();
     if (result) {

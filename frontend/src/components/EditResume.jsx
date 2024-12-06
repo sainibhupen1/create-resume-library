@@ -50,7 +50,9 @@ const EditResume = () => {
   //   console.log(input);
 
   const resumehandler = async () => {
-    const res = await fetch("http://localhost:8000/resume");
+    const res = await fetch(
+      "https://create-resume-library.onrender.com/resume"
+    );
     const result = await res.json();
     if (result) {
       setInput(result);
@@ -60,7 +62,7 @@ const EditResume = () => {
   const updatehandler = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://localhost:8000/updateresume/${input?._id}`,
+      `https://create-resume-library.onrender.com/updateresume/${input?._id}`,
       {
         method: "put",
         body: JSON.stringify(input),

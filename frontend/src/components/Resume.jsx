@@ -25,7 +25,9 @@ const Resume = () => {
   };
 
   const resumehandler = async () => {
-    const res = await fetch("http://localhost:8000/resume");
+    const res = await fetch(
+      "https://create-resume-library.onrender.com/resume"
+    );
     const result = await res.json();
     if (result) {
       setResume(result);

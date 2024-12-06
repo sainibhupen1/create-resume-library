@@ -11,13 +11,16 @@ const AddBooks = () => {
   const navigate = useNavigate();
 
   const Addbook = async () => {
-    let res = await fetch("http://localhost:8000/products", {
-      method: "post",
-      body: JSON.stringify({ book, price }),
-      headers: {
-        "content-Type": "application/json",
-      },
-    });
+    let res = await fetch(
+      "https://create-resume-library.onrender.com/products",
+      {
+        method: "post",
+        body: JSON.stringify({ book, price }),
+        headers: {
+          "content-Type": "application/json",
+        },
+      }
+    );
 
     res = await res.json();
     if (res) {
