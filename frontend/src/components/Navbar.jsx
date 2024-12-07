@@ -4,6 +4,7 @@ import Footer from "./Footer";
 
 const Navbar = () => {
   const [user, setUser] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigate = useNavigate();
   const authsign = localStorage.getItem("learningsignup");
@@ -19,78 +20,157 @@ const Navbar = () => {
 
   useEffect(() => {
     users();
-  });
+  }, []);
 
   const logouthandler = () => {
     localStorage.clear();
+    setUser("");
   };
-  return (
-    <div>
-      <div className="">
-        <ul className="flex  p-5 bg-[#e99ad5] fixed w-screen">
-          <Link to="/" className="mr-5 font-bold text-lg">
-            Home
-          </Link>
-          <Link to="/profile" className="mr-5 font-bold text-lg">
-            Profile
-          </Link>
-          {authlogin && (
-            <>
-              {" "}
-              <Link to="/addbooks" className="mr-5 font-bold text-lg">
-                AddBooks
-              </Link>
-              <Link to="/storeroom" className="mr-5 font-bold text-lg">
-                StoreBook
-              </Link>{" "}
-              <Link to="/createresume" className="mr-5 font-bold text-lg">
-                CreateResume
-              </Link>{" "}
-              <Link to="/resume" className="mr-80 font-bold text-lg">
-                Resume
-              </Link>{" "}
-            </>
-          )}
 
-          {authlogin && authsign ? (
-            <Link
-              onClick={logouthandler}
-              to="/login"
-              className="mr-5 font-bold text-lg "
-            >
-              Log out ({user})
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Navbar */}
+      <div className="bg-[#e99ad5] fixed top-0 w-full z-10 shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="hidden md:flex space-x-4">
+              <Link to="/" className="text-lg font-bold">
+                Home
+              </Link>
+              <Link to="/profile" className="text-lg font-bold">
+                Profile
+              </Link>
+              {authlogin && (
+                <>
+                  <Link to="/addbooks" className="text-lg font-bold">
+                    AddBooks
+                  </Link>
+                  <Link to="/storeroom" className="text-lg font-bold">
+                    StoreBook
+                  </Link>
+                  <Link to="/createresume" className="text-lg font-bold">
+                    CreateResume
+                  </Link>
+                  <Link to="/resume" className="text-lg font-bold">
+                    Resume
+                  </Link>
+                </>
+              )}
+
+              {authlogin && authsign ? (
+                <Link
+                  onClick={logouthandler}
+                  to="/login"
+                  className="text-lg font-bold"
+                >
+                  Log out ({user})
+                </Link>
+              ) : authlogin ? (
+                <Link
+                  onClick={logouthandler}
+                  to="/login"
+                  className="text-lg font-bold"
+                >
+                  Log out ({user})
+                </Link>
+              ) : authsign ? (
+                <Link to="/login" className="text-lg font-bold">
+                  Login
+                </Link>
+              ) : (
+                <>
+                  <Link to="/signup" className="text-lg font-bold">
+                    Signup
+                  </Link>
+                  <Link to="/login" className="text-lg font-bold">
+                    Login
+                  </Link>
+                </>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                className="text-gray-800 focus:outline-none"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                ☰
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:hidden bg-white shadow-md`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link to="/" className="block text-lg font-bold">
+              Home
             </Link>
-          ) : authlogin ? (
-            <Link
-              onClick={logouthandler}
-              to="/login"
-              className=" font-bold text-lg"
-            >
-              Log out ({user})
+            <Link to="/profile" className="block text-lg font-bold">
+              Profile
             </Link>
-          ) : authsign ? (
-            <>
-              <Link to="/login" className="mr-5 font-bold text-lg">
+            {authlogin && (
+              <>
+                <Link to="/addbooks" className="block text-lg font-bold">
+                  AddBooks
+                </Link>
+                <Link to="/storeroom" className="block text-lg font-bold">
+                  StoreBook
+                </Link>
+                <Link to="/createresume" className="block text-lg font-bold">
+                  CreateResume
+                </Link>
+                <Link to="/resume" className="block text-lg font-bold">
+                  Resume
+                </Link>
+              </>
+            )}
+
+            {authlogin && authsign ? (
+              <Link
+                onClick={logouthandler}
+                to="/login"
+                className="block text-lg font-bold"
+              >
+                Log out ({user})
+              </Link>
+            ) : authlogin ? (
+              <Link
+                onClick={logouthandler}
+                to="/login"
+                className="block text-lg font-bold"
+              >
+                Log out ({user})
+              </Link>
+            ) : authsign ? (
+              <Link to="/login" className="block text-lg font-bold">
                 Login
               </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/signup" className="mr-5 font-bold text-lg">
-                Signup
-              </Link>
-              <Link to="/login" className="mr-5 font-bold text-lg">
-                Login
-              </Link>
-            </>
-          )}
-        </ul>
+            ) : (
+              <>
+                <Link to="/signup" className="block text-lg font-bold">
+                  Signup
+                </Link>
+                <Link to="/login" className="block text-lg font-bold">
+                  Login
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
       </div>
 
-      <div>
+      {/* Main Content */}
+      <div className="mt-16 flex-1">
         <Outlet />
       </div>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

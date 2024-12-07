@@ -105,19 +105,22 @@ const CreateResume = () => {
   };
 
   return (
-    <div className="p-20 flex justify-center">
-      <div className="border-2 shadow-lg  border-red-100 rounded-md w-[70%] h-full">
-        <form>
-          <div className="flex justify-center items-center mt-6 mb-14 ">
-            <h1 className="pt-2 pb-2 pl-16 pr-16   rounded-lg  bg-[#ab91db] hover:bg-blue-900 font-bold text-[24px]">
+    <div className="p-4 sm:p-8 lg:p-16 flex justify-center">
+      <div className="border-2 shadow-lg border-red-100 rounded-md w-full lg:w-[70%] h-full">
+        <form onSubmit={submitHandler}>
+          <div className="flex justify-center items-center mt-6 mb-14">
+            <h1 className="pt-2 pb-2 pl-6 pr-6 rounded-lg bg-[#ab91db] hover:bg-blue-900 font-bold text-[24px]">
               Users Information
             </h1>
           </div>
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
+
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
             About Yourself
           </h2>
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%] ">
+
+          {/* Input Fields */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
               UserName :
             </span>
             <Input
@@ -126,12 +129,12 @@ const CreateResume = () => {
               value={input.username}
               onChange={changeEventHandler}
               placeholder="Enter Your Name"
-              className="ml-4 w-[50%]"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%] ">
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
               MobileNumber :
             </span>
             <Input
@@ -140,71 +143,63 @@ const CreateResume = () => {
               value={input.mobilenumber}
               onChange={changeEventHandler}
               placeholder="Mobile Number"
-              className="ml-4 w-[50%]"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Email :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Email :
+            </span>
             <Input
               type="email"
               name="email"
               value={input.email}
               onChange={changeEventHandler}
               placeholder="saini@gmail.com"
-              className="ml-4 w-[50%]"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">City :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              City :
+            </span>
             <Input
               type="text"
               name="city"
               value={input.city}
               onChange={changeEventHandler}
-              placeholder="Dausa/jaipur"
-              className="ml-4 w-[50%]"
+              placeholder="Dausa/Jaipur"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">State :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              State :
+            </span>
             <Input
               type="text"
               name="state"
               value={input.state}
               onChange={changeEventHandler}
               placeholder="Rajasthan/Delhi"
-              className="ml-4 w-[50%]"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            About Yourself
+
+          {/* Section Divider */}
+          <hr className="border-1 border-black mx-6 mt-4 mb-4" />
+
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            College Information
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              About-Yourself :
-            </span>
-            <Input
-              type="text"
-              name="aboutme"
-              value={input.aboutme}
-              onChange={changeEventHandler}
-              placeholder="50-100/words"
-              className="ml-4 w-[50%]"
-            />
-          </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            College-Information
-          </h2>
-
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              CollegeName :
+          {/* College Information */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              College Name :
             </span>
             <Input
               type="text"
@@ -212,463 +207,464 @@ const CreateResume = () => {
               value={input.collegename}
               onChange={changeEventHandler}
               placeholder="Enter Your College Name"
-              className="ml-4 w-[50%]"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              College-City :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              College City :
             </span>
             <Input
               type="text"
               name="colcity"
               value={input.colcity}
               onChange={changeEventHandler}
-              placeholder="Dausa/jaipur"
-              className="ml-4 w-[50%]"
+              placeholder="College City"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              College-State :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              College State :
             </span>
             <Input
               type="text"
               name="colstate"
               value={input.colstate}
               onChange={changeEventHandler}
-              placeholder="Rajasthan/delhi"
-              className="ml-4 w-[50%]"
+              placeholder="College State"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              College-CGPA :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              College CGPA :
             </span>
             <Input
               type="number"
               name="colcgpa"
               value={input.colcgpa}
               onChange={changeEventHandler}
-              placeholder="0.0"
-              className="ml-4 w-[50%]"
+              placeholder="CGPA"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Branch :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Field of Study :
+            </span>
             <Input
               type="text"
               name="colfield"
               value={input.colfield}
               onChange={changeEventHandler}
-              placeholder="BCA/MCA/B.Tech/MBA"
-              className="ml-4 w-[50%]"
+              placeholder="Field of Study"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Spelization :
-            </span>
-            <Input
-              type="text"
-              name="colfieldbranch"
-              value={input.colfieldbranch}
-              onChange={changeEventHandler}
-              placeholder="General/etc."
-              className="ml-4 w-[50%]"
-            />
-          </div>
+          {/* Section Divider */}
+          <hr className="border-1 border-black mx-6 mt-4 mb-4" />
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Passing-Year :
-            </span>
-            <Input
-              type="number"
-              name="colyear"
-              value={input.colyear}
-              onChange={changeEventHandler}
-              placeholder="2021-2024"
-              className="ml-4 w-[50%]"
-            />
-          </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            School Information-12
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            12th School Information
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-Name-12 :
+          {/* 12th School Information */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              School Name :
             </span>
             <Input
               type="text"
               name="schoolname12"
               value={input.schoolname12}
               onChange={changeEventHandler}
-              placeholder=" School-Name"
-              className="ml-4 w-[50%]"
+              placeholder="Enter Your 12th School Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-City :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              City (12th) :
             </span>
             <Input
               type="text"
               name="city12"
               value={input.city12}
               onChange={changeEventHandler}
-              placeholder="Dausa/jaipur"
-              className="ml-4 w-[50%]"
+              placeholder="City"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-State :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              State (12th) :
             </span>
             <Input
               type="text"
               name="state12"
               value={input.state12}
               onChange={changeEventHandler}
-              placeholder="Jaipur/delhi"
-              className="ml-4 w-[50%]"
+              placeholder="State"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Board-Name :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Board Name (12th) :
             </span>
             <Input
               type="text"
               name="boardname12"
               value={input.boardname12}
               onChange={changeEventHandler}
-              placeholder="RBSE/CBSE"
-              className="ml-4 w-[50%]"
+              placeholder="Board Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Percentage :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Percentage (12th) :
             </span>
             <Input
               type="number"
               name="percentage12"
               value={input.percentage12}
               onChange={changeEventHandler}
-              placeholder="0.0"
-              className="ml-4 w-[50%]"
+              placeholder="Percentage"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            School Information-10
+          {/* Section Divider */}
+          <hr className="border-1 border-black mx-6 mt-4 mb-4" />
+
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            10th School Information
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-Name-10 :
+          {/* 10th School Information */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              School Name (10th) :
             </span>
             <Input
               type="text"
               name="schoolname10"
               value={input.schoolname10}
               onChange={changeEventHandler}
-              placeholder="School-Name"
-              className="ml-4 w-[50%]"
+              placeholder="Enter Your 10th School Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-City :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              City (10th) :
             </span>
             <Input
               type="text"
               name="city10"
               value={input.city10}
               onChange={changeEventHandler}
-              placeholder="Dausa/jaipur"
-              className="ml-4 w-[50%]"
+              placeholder="City"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              School-State :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              State (10th) :
             </span>
             <Input
               type="text"
               name="state10"
               value={input.state10}
               onChange={changeEventHandler}
-              placeholder="Rajasthan/delhi"
-              className="ml-4 w-[50%]"
+              placeholder="State"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Board-Name :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Board Name (10th) :
             </span>
             <Input
               type="text"
               name="boardname10"
               value={input.boardname10}
               onChange={changeEventHandler}
-              placeholder="RBSE/CBSE"
-              className="ml-4 w-[50%]"
+              placeholder="Board Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Percentage :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Percentage (10th) :
             </span>
             <Input
               type="number"
               name="percentage10"
               value={input.percentage10}
               onChange={changeEventHandler}
-              placeholder="0.0"
-              className="ml-4 w-[50%]"
+              placeholder="Percentage"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            Project Information-1
+          {/* Section Divider */}
+          <hr className="border-1 border-black mx-6 mt-4 mb-4" />
+
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            Projects
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Project-Name1 :
+          {/* Project 1 */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Project 1 Name :
             </span>
             <Input
               type="text"
               name="projectname1"
               value={input.projectname1}
               onChange={changeEventHandler}
-              placeholder="Project-Name"
-              className="ml-4 w-[50%]"
+              placeholder="Project 1 Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Github-Link-P1 :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              GitHub Link (Project 1) :
             </span>
             <Input
               type="text"
               name="p1gitlink"
               value={input.p1gitlink}
               onChange={changeEventHandler}
-              placeholder="http://com."
-              className="ml-4 w-[50%]"
+              placeholder="GitHub Link"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Skills-P1 :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Skills (Project 1) :
             </span>
             <Input
               type="text"
               name="p1skills"
-              value={input.p1skills}
+              value={input.p1skills.join(",")}
               onChange={changeEventHandler}
-              placeholder="HTML,CSS,JS"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">About-P1 :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              About (Project 1) :
+            </span>
             <Input
               type="text"
               name="p1about"
               value={input.p1about}
               onChange={changeEventHandler}
-              placeholder="10-50/words"
-              className="ml-4 w-[50%]"
+              placeholder="About the project"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            Project Information-2
-          </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Project-Name2 :
+          {/* Project 2 */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Project 2 Name :
             </span>
             <Input
               type="text"
               name="projectname2"
               value={input.projectname2}
               onChange={changeEventHandler}
-              placeholder="project-Name"
-              className="ml-4 w-[50%]"
+              placeholder="Project 2 Name"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Github-Link-P2 :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              GitHub Link (Project 2) :
             </span>
             <Input
               type="text"
               name="p2gitlink"
               value={input.p2gitlink}
               onChange={changeEventHandler}
-              placeholder="http://com."
-              className="ml-4 w-[50%]"
+              placeholder="GitHub Link"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Skills-P2 :
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Skills (Project 2) :
             </span>
             <Input
               type="text"
               name="p2skills"
-              value={input.p2skills}
+              value={input.p2skills.join(",")}
               onChange={changeEventHandler}
-              placeholder="HTML,CSS,JS"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">About-P2 :</span>
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              About (Project 2) :
+            </span>
             <Input
               type="text"
               name="p2about"
               value={input.p2about}
               onChange={changeEventHandler}
-              placeholder="10-50/words"
-              className="ml-4 w-[50%]"
+              placeholder="About the project"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            Your Skills Information
+
+          {/* Skills Section */}
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            Skills
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Frontend :</span>
+          {/* Frontend Skills */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Frontend Skills :
+            </span>
             <Input
               type="text"
               name="frontend"
-              value={input.frontend}
+              value={input.frontend.join(",")}
               onChange={changeEventHandler}
-              placeholder="HTML,CSS,JS"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated frontend skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Backend :</span>
+          {/* Backend Skills */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Backend Skills :
+            </span>
             <Input
               type="text"
               name="backend"
-              value={input.backend}
+              value={input.backend.join(",")}
               onChange={changeEventHandler}
-              placeholder="NODE js/EXPRESS.js"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated backend skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Database :</span>
+          {/* Database Skills */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Database Skills :
+            </span>
             <Input
               type="text"
               name="database"
-              value={input.database}
+              value={input.database.join(",")}
               onChange={changeEventHandler}
-              placeholder="MongoDB/NoSql"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated database skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Others :</span>
+          {/* Other Skills */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Other Skills :
+            </span>
             <Input
               type="text"
               name="others"
-              value={input.others}
+              value={input.others.join(",")}
               onChange={changeEventHandler}
-              placeholder="GIT/GITHUB"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated other skills"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            Your Complete Certificate Information
+
+          {/* Section Divider */}
+          <hr className="border-1 border-black mx-6 mt-4 mb-4" />
+
+          <h2 className="ml-4 sm:ml-8 underline mb-6 font-medium text-blue-500">
+            Certifications
           </h2>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              Company-Name-Cti :
+          {/* Company Certifications */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Company Certifications :
             </span>
             <Input
               type="text"
               name="companynamecet"
-              value={input.companynamecet}
+              value={input.companynamecet.join(",")}
               onChange={changeEventHandler}
-              placeholder="company-name"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated company certifications"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
 
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">
-              CTI-Field :
+          {/* Field Certifications */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Field Certifications :
             </span>
             <Input
               type="text"
               name="fieldcet"
-              value={input.fieldcet}
+              value={input.fieldcet.join(",")}
               onChange={changeEventHandler}
-              placeholder="Field of certificate"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated field certifications"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <hr className="border-1 border-black ml-10 mr-10 mt-4 mb-4" />
-          <h2 className="ml-20 underline mb-6 font-medium text-blue-500 ">
-            Language
-          </h2>
-          <div className="flex justify-center items-center m-4">
-            <span className="font-medium text-[18px]  w-[25%]">Language :</span>
+
+          {/* Language Certifications */}
+          <div className="flex flex-col sm:flex-row justify-center items-center m-4">
+            <span className="font-medium text-[18px] w-full sm:w-[25%]">
+              Languages :
+            </span>
             <Input
               type="text"
               name="language"
-              value={input.language}
+              value={input.language.join(",")}
               onChange={changeEventHandler}
-              // onChange={(e) =>
-              //   setInput({ ...input, cuisines: e.target.value.split(",") })
-              // }
-              placeholder="Hindi,English"
-              className="ml-4 w-[50%]"
+              placeholder="Comma-separated languages"
+              className="ml-4 w-full sm:w-[50%]"
             />
           </div>
-          <div className="flex justify-center items-center mt-16 mb-6 ">
+
+          <div className="flex justify-center items-center mt-6 mb-4">
             <Button
-              onClick={submitHandler}
-              className="w-[50%] bg-blue-600 hover:bg-blue-900 font-bold"
+              type="submit"
+              className="py-2 px-6 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-700 transition-all"
             >
               Create Resume
             </Button>

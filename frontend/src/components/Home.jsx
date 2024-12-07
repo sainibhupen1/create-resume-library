@@ -1,18 +1,32 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import book from "../../public/booklib.webp";
+import resume from "../../public/resimg.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="p-20 bg-green-50 h-screen flex justify-center items-center">
-      <div>
-        <h1 className=" text-[50px] font-bold text-blue-600">
-          {" "}
-          Hello My Dear Friend's{" "}
-        </h1>
-        <br />
-        <span className="text-[30px] font-bold text-orange-600">
-          WelCome 🙏 To My Learning Website ❤️
-        </span>
+    <div className="flex flex-col lg:flex-row p-10 bg-green-50 min-h-screen justify-center items-center space-y-10 lg:space-y-0 lg:space-x-10">
+      {/* Book Section */}
+      <div className="w-full lg:w-1/2 flex flex-col items-center space-y-4">
+        <img src={book} alt="book" className="w-40 h-auto sm:w-52" />
+        <Link
+          to="/addbooks"
+          className="text-lg sm:text-xl font-bold text-blue-700 underline hover:text-blue-950"
+        >
+          Add Book
+        </Link>
+      </div>
+
+      {/* Resume Section */}
+      <div className="w-full lg:w-1/2 flex flex-col items-center space-y-4">
+        <img src={resume} alt="resume" className="w-36 h-auto sm:w-44" />
+        <Link
+          to="/createresume"
+          className="text-lg sm:text-xl font-bold text-blue-700 underline hover:text-blue-950"
+        >
+          Create Resume
+        </Link>
       </div>
     </div>
   );

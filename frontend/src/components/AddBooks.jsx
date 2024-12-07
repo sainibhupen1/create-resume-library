@@ -32,15 +32,15 @@ const AddBooks = () => {
   };
 
   return (
-    <div className="p-20 flex bg-gray-100 items-center justify-center w-max-7xl h-screen">
-      <form className="w-1/3  shadow-lg border border-red-100 rounded-md flex flex-col gap-5 p-8">
+    <div className="p-5 md:p-10 lg:p-20 flex bg-gray-100 items-center justify-center w-full h-screen">
+      <form className="w-full max-w-md shadow-lg border border-gray-300 rounded-md flex flex-col gap-5 p-5 sm:p-8 bg-white">
         <div>
           <Input
             type="text"
             onChange={(e) => setBook(e.target.value)}
             value={book}
             placeholder="Book Name"
-            className=" border-green-700 focus-visible:ring-transparent my-2 "
+            className="border-green-700 focus-visible:ring-transparent my-2 w-full"
           />
         </div>
 
@@ -49,15 +49,15 @@ const AddBooks = () => {
             type="number"
             onChange={(e) => setPrice(e.target.value)}
             value={price}
-            placeholder="price"
-            className="border-green-700 focus-visible:ring-transparent my-2 "
+            placeholder="Price"
+            className="border-green-700 focus-visible:ring-transparent my-2 w-full"
           />
         </div>
 
         <Button
           type="button"
           onClick={Addbook}
-          className="bg-blue-700 hover:bg-blue-950"
+          className="bg-blue-700 hover:bg-blue-950 text-white py-2 px-4 rounded-md w-full"
         >
           Add Book
         </Button>

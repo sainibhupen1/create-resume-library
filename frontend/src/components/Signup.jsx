@@ -12,8 +12,6 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const submitHandler = async () => {
-    // console.log(name, email, password);
-
     let result = await fetch(
       "https://create-resume-library.onrender.com/register",
       {
@@ -35,8 +33,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="p-20 flex bg-gray-100 items-center justify-center w-max-7xl h-screen">
-      <form className="w-1/3  shadow-lg border border-red-100 rounded-md flex flex-col gap-5 p-8">
+    <div className="p-4 sm:p-8 md:p-16 lg:p-20 xl:p-24 flex bg-gray-100 items-center justify-center w-full h-screen">
+      <form className="w-full sm:w-4/5 md:w-1/2 lg:w-1/3 xl:w-1/4 shadow-lg border border-red-100 rounded-md flex flex-col gap-5 p-8">
         <div>
           <Input
             type="text"
@@ -44,7 +42,7 @@ const Signup = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter Your Name"
-            className=" border-green-700 focus-visible:ring-transparent my-2 "
+            className="border-green-700 focus-visible:ring-transparent my-2"
           />
         </div>
 
@@ -55,30 +53,31 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email@gmail.com"
-            className="border-green-700 focus-visible:ring-transparent my-2 "
+            className="border-green-700 focus-visible:ring-transparent my-2"
           />
         </div>
 
         <div>
           <Input
-            type="text"
+            type="password"
             name="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border-green-700 focus-visible:ring-transparent my-2 "
+            className="border-green-700 focus-visible:ring-transparent my-2"
           />
         </div>
 
         <Button
           type="button"
           onClick={submitHandler}
-          className="bg-blue-700 hover:bg-blue-950"
+          className="bg-blue-700 hover:bg-blue-950 text-white"
         >
           Sign Up
         </Button>
+
         <span className="text-center">
-          Already have an acount?{" "}
+          Already have an account?{" "}
           <Link to="/login" className="text-blue-700">
             Login
           </Link>
