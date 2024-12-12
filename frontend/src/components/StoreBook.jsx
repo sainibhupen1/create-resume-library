@@ -8,8 +8,13 @@ import { useNavigate } from "react-router-dom";
 const StoreBook = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const authlogin = localStorage.getItem("learninglogin");
 
   useEffect(() => {
+    if (!authlogin) {
+      navigate("/");
+    }
+
     productapi();
   }, []);
 

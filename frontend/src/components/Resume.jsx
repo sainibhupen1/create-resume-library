@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Resume = () => {
   const [resume, setResume] = useState();
   const navigate = useNavigate();
+  const authlogin = localStorage.getItem("learninglogin");
 
   const handleDownload = () => {
     // सबसे पहले उस हिस्से को कैप्चर करें जिसे आप डाउनलोड करना चाहते हैं
@@ -35,6 +36,9 @@ const Resume = () => {
   };
 
   useEffect(() => {
+    if (!authlogin) {
+      navigate("/");
+    }
     resumehandler();
   }, []);
 

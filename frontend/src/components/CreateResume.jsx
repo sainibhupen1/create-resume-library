@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const CreateResume = () => {
   const navigate = useNavigate();
+  const authlogin = localStorage.getItem("learninglogin");
+
   const [input, setInput] = useState({
     username: "",
     mobilenumber: "",
@@ -103,6 +105,12 @@ const CreateResume = () => {
       toast.success(result.message);
     }
   };
+
+  useEffect(() => {
+    if (!authlogin) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="p-4 sm:p-8 lg:p-16 flex justify-center">

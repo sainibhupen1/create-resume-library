@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AddBooks = () => {
   const [book, setBook] = useState("");
   const [price, setPrice] = useState("");
+  const authlogin = localStorage.getItem("learninglogin");
 
   const navigate = useNavigate();
 
@@ -30,6 +31,12 @@ const AddBooks = () => {
       toast.success(res.message);
     }
   };
+
+  useEffect(() => {
+    if (!authlogin) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="p-5 md:p-10 lg:p-20 flex bg-gray-100 items-center justify-center w-full h-screen">

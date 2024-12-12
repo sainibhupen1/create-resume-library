@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const EditResume = () => {
   const navigate = useNavigate();
+  const authlogin = localStorage.getItem("learninglogin");
+
   const [input, setInput] = useState({
     username: "",
     mobilenumber: "",
@@ -82,6 +84,9 @@ const EditResume = () => {
   };
 
   useEffect(() => {
+    if (!authlogin) {
+      navigate("/");
+    }
     resumehandler();
   }, []);
 
